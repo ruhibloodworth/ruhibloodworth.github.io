@@ -1,7 +1,7 @@
 import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-const Seo: React.FC<{ title: string }> = ({ title }) => {
+const Seo: React.FC<{ title?: string }> = ({ title }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -14,7 +14,9 @@ const Seo: React.FC<{ title: string }> = ({ title }) => {
 
   return (
     <title>
-      {title} | {data.site.siteMetadata.title}
+      {title
+        ? `${title} | ${data.site.siteMetadata.title}`
+        : data.site.siteMetadata.title}
     </title>
   );
 };

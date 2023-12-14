@@ -14,9 +14,12 @@ type DataProps = {
 
 const BlogPost = ({ data, children }: PageProps<DataProps>) => {
   return (
-    <Layout pageTitle={data.mdx.frontmatter.title}>
-      <p>{data.mdx.frontmatter.date}</p>
-      {children}
+    <Layout>
+      <article>
+        <h2>{data.mdx.frontmatter.title}</h2>
+        <time>{data.mdx.frontmatter.date}</time>
+        {children}
+      </article>
     </Layout>
   );
 };

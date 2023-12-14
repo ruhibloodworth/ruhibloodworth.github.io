@@ -1,0 +1,33 @@
+@import "open-props/open-props.min.css";
+
+.doc-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-sans);
+}
+
+header a {
+  color: var(--gray-12);
+  text-decoration: none;
+}
+
+main {
+  max-width: var(--size-content-3);
+}
+
+footer {
+  margin-top: var(--size-8);
+}
+
+article {
+  margin-top: var(--size-6);
+}
+
+article h2 {
+  margin: 0;
+}
+
+article time {
+  font-style: italic;
+}

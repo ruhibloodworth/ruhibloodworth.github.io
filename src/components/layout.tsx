@@ -1,10 +1,8 @@
 import * as React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
+import "./main.css";
 
-const Layout: React.FC<{ pageTitle: string; children: React.ReactNode }> = ({
-  pageTitle,
-  children,
-}) => {
+const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -15,25 +13,14 @@ const Layout: React.FC<{ pageTitle: string; children: React.ReactNode }> = ({
     }
   `);
   return (
-    <div>
-      <header>{data.site.siteMetadata.title}</header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-        </ul>
-      </nav>
-      <main>
-        <h1>{pageTitle}</h1>
-        {children}
-      </main>
+    <div className="doc-container">
+      <header>
+        <Link to="/">
+          <h1>{data.site.siteMetadata.title}</h1>
+        </Link>
+      </header>
+      <main>{children}</main>
+      <footer>© 2023 Ruhi Bloodworth</footer>
     </div>
   );
 };
